@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>AI3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" src="ai3.css"></link>
+</head>
+<body>
+    <h3>Questão 1</h3>
+    <h1 id="name-greeting"></h1>
+
+    <hr>
+
+    <h3>Questão 2</h3>
+    <input id="input-text" type="text" onblur="checkEmpty()">
+    <br>
+    <input id="input-pwd" type="password">
+    <br>
+    <button id="send-pwd" onclick="checkPassword()">SEND</button>
+
+    <hr>
+
+    <h3>Questão 3</h3>
+    <img id="image"></img>
+    <br>
+    <button id="btn0" onclick="swapImg(0)">IMG 0</button>
+    <button id="btn1" onclick="swapImg(1)">IMG 1</button>
+    <hr>
+</body>
+<script>
+
+function setName(name) {
+    document.getElementById("name-greeting").textContent = `Olá ${name}!`;
+}
+
+function checkEmpty() {
+    const txt = document.getElementById("input-text").value;
+    if (txt === "") {
+        alert("Campo não preenchido!");
+    }
+}
+
+function checkPassword() {
+    const input = document.getElementById("input-text");
+    const pwd = document.getElementById("input-pwd");
+    const empty = input.value === "" && pwd.value === "";
+    if (!empty && input.value === pwd.value) {
+        alert("Campos não podem possuir o mesmo valor");
+    }
+}
+
+function swapImg(index) {
+    document.getElementById("image").src = `./${index}.webp`;
+}
+
+const name = window.prompt("Digite seu nome");
+setName(name);
+
+</script>
+</html>
